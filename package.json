@@ -9,18 +9,39 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.24.7",
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "^2.1.5",
+    "@supabase/ssr": "^0.4.1",
+    "@supabase/supabase-js": "^2.45.1",
+    "fullcalendar-copy-paste": "^1.0.1",
+    "heroicons": "^2.1.5",
+    "ldrs": "^1.0.2",
+    "next": "14.2.5",
+    "next-auth": "^5.0.0-beta.20",
+    "next-transpile-modules": "^10.0.1",
     "react": "^18",
+    "react-datepicker": "^7.3.0",
     "react-dom": "^18",
-    "next": "14.2.5"
+    "react-hot-toast": "^2.4.1",
+    "react-time-picker": "^7.0.0",
+    "timepicker": "^1.14.1",
+    "uniqid": "^5.4.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uniqid": "^5.3.4",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5"
+    "typescript": "^5"
   }
 }
