@@ -1,7 +1,7 @@
 import { Staff } from "@/types";
 import { getStaff } from "../_lib/data-access";
 import StaffCard from "./StaffCard";
-import { useCalendar } from "../context/CalendarContext";
+
 import AddStaffButton from "../components/AddStaffButton";
 import AddStaffModal from "../components/AddStaffModal";
 import { auth } from "../_lib/auth";
@@ -15,7 +15,9 @@ export const metadata = {
 export default async function Page() {
   const staff: Staff[] = await getStaff();
   const session = await auth();
+  const adminUser = (session?.user as { admin?: boolean })?.admin || null;
 
+  console.log("adminUser", adminUser);
   return (
     <div>
       <AddStaffModal />
@@ -24,8 +26,8 @@ export default async function Page() {
           Staff List
         </h2>
         <div className="flex gap-3 items-center justify-end">
-          {session?.user?.admin && <AddStaffButton />}
-          {session?.user?.admin && <EditStaffButton />}
+          {adminUser && <AddStaffButton />}
+          {adminUser && <EditStaffButton />}
         </div>
         <EditStaffModal staff={staff} />
       </div>

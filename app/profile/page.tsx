@@ -11,8 +11,10 @@ export const metadata = {
 export const revalidate = 3600; // refreshes the page every hour (3600 seconds)
 
 export default async function Page({ searchParams }: { searchParams: any }) {
-  const session: Session = await auth();
-  const shifts = await getShiftsFromServer(session?.user.staffId);
+  const session = await auth();
+  if (!session) {
+    return null;
+  }
 
   const filter = searchParams?.date ?? "all";
 

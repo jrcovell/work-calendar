@@ -1,11 +1,16 @@
-import { get } from "http";
 import { getShiftsFromServer } from "../_lib/actions";
 import { auth } from "../_lib/auth";
 import ShiftCard from "./ShiftCard";
 
-async function ShiftList({ filter }) {
-  const session = await auth();
-  const shifts = await getShiftsFromServer(session?.user.staffId);
+export type user = {
+  staffId: string;
+  email: string;
+};
+
+async function ShiftList({ filter }: { filter: string }) {
+  const session: any = await auth();
+
+  const shifts: any[] = await getShiftsFromServer(session?.user?.staffId);
 
   let filteredShifts = [];
 

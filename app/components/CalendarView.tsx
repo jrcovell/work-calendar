@@ -5,6 +5,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin, {
+  DateClickArg,
   Draggable,
   DropArg,
 } from "@fullcalendar/interaction";
@@ -43,13 +44,13 @@ function CalendarView({
     .toString()
     .substring(0, 4);
 
-  function handleAddShift(data: DropArg) {
+  function handleAddShift(data: DateClickArg) {
     // console.log("data", data);
     setSelectedDate(data.dateStr);
     setShowAdd(true);
   }
 
-  function handleEditShift(data: DropArg) {
+  function handleEditShift(data: EventClickArg) {
     // console.log("DATA", data);
     setSelectedShift(data);
     setShowEdit(true);
@@ -65,12 +66,12 @@ function CalendarView({
           center: "title",
           right: "dayGridWeek,dayGridMonth",
         }}
-        events={[...schedule]}
+        events={[...(schedule as any)]}
         nowIndicator={true}
         editable={false}
         droppable={false}
-        eventClick={user.admin ? (data) => handleEditShift(data) : null}
-        dateClick={user.admin ? (data) => handleAddShift(data) : null}
+        eventClick={user.admin ? (data) => handleEditShift(data) : undefined}
+        dateClick={user.admin ? (data) => handleAddShift(data) : undefined}
         selectable={false}
         selectMirror={true}
         defaultAllDay={false}
@@ -105,3 +106,25 @@ export default CalendarView;
 {
   /* <AddShiftModal staff={staff} /> */
 }
+
+/* V1 Calendar Format 
+<FullCalendar
+plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+initialView="dayGridWeek"
+headerToolbar={{
+  left: "prev,next today",
+  center: "title",
+  right: "dayGridWeek,dayGridMonth",
+}}
+events={[...(schedule as any)]}
+nowIndicator={true}
+editable={false}
+droppable={false}
+eventClick={user.admin ? (data) => handleEditShift(data) : null}
+dateClick={user.admin ? (data) => handleAddShift(data) : null}
+selectable={false}
+selectMirror={true}
+defaultAllDay={false}
+displayEventEnd={true}
+/>
+*/

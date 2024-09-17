@@ -31,13 +31,15 @@ function TimeOffForm({ staff }: { staff: any }) {
   };
 
   function confirmTimeOff() {
-    // get all the days between the start and end date
-    // add the end date to the array
-    // days.push(endDate);
-    // set the state
-    // setRequestedOffDays(days);
-    // send the request to the server
-    addRequestTimeOff(startDate, endDate, requestedOffDays, staff);
+    if (startDate && endDate) {
+      // get all the days between the start and end date
+      // add the end date to the array
+      // days.push(endDate);
+      // set the state
+      // setRequestedOffDays(days);
+      // send the request to the server
+      addRequestTimeOff(startDate, endDate, requestedOffDays, staff);
+    }
   }
 
   return (

@@ -14,7 +14,7 @@ import AddStaffForm from "./AddStaffForm";
 import { Staff } from "@/types";
 import EditStaffForm from "./EditStaffForm";
 
-export default function EditStaffModal({ staff, index }: { staff: Staff }) {
+export default function EditStaffModal({ staff }: { staff: Staff[] }) {
   const { showEditStaff, setShowEditStaff } = useCalendar();
   return (
     <>
@@ -53,7 +53,7 @@ export default function EditStaffModal({ staff, index }: { staff: Staff }) {
                         Edit Employee:
                       </DialogTitle>
                     </div>
-                    <EditStaffForm staff={staff} index={index} />
+                    <EditStaffForm staff={staff} />
                   </div>
                 </DialogPanel>
               </TransitionChild>

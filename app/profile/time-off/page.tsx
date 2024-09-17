@@ -6,7 +6,11 @@ import React from "react";
 
 async function Page() {
   const session = await auth();
-  const staff = await getStaffFromServer(session.user.email);
+
+  const staffEmail: string = session?.user?.email ?? "";
+
+  const staff = await getStaffFromServer(staffEmail);
+
   const timeOff = await getTimeOffFromServer(staff.id);
 
   return (

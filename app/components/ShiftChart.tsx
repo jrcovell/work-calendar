@@ -1,40 +1,41 @@
-"use client";
+// "use client";
 
-import { Shift } from "@/types";
-import { useState } from "react";
+// import { Shift, Staff } from "@/types";
+// import { useState } from "react";
 
-function ShiftChart({ staff }: { staff: any[] }) {
-  const [shifts, setShifts] = useState<Shift[]>(
-    staff.map((staff) => ({
-      staff: staff.name,
-      id: staff.id,
-      color: staff.color,
-    }))
-  );
+// function ShiftChart({ staff }: { staff: Staff[] })
+// {
+//   const [shifts, setShifts] = useState<Shift[]>(
+//     staff.map((staff) => ({
+//       staff: staff.name,
+//       id: staff.id,
+//       color: staff.color,
+//     }))
+//   );
 
-  return (
-    <div className="col-span-2 grid grid-cols-4 ml-2 mt-2" id="draggable-el">
-      <div className="col-span-4 mt-3">
-        {shifts.map((shift) => (
-          <div
-            key={shift.id}
-            className="grid grid-cols-8 font-bold border border-purple-900 p-1 items-center"
-          >
-            <span className="col-span-4 border-r-2">{shift.staff}</span>
+//   return (
+//     <div className="col-span-2 grid grid-cols-4 ml-2 mt-2" id="draggable-el">
+//       <div className="col-span-4 mt-3">
+//         {shifts.map((shift) => (
+//           <div
+//             key={shift.id}
+//             className="grid grid-cols-8 font-bold border border-purple-900 p-1 items-center"
+//           >
+//             <span className="col-span-4 border-r-2">{shift.staff}</span>
 
-            <span
-              id={shift.staff.toString()}
-              title={"Open" + " " + shift.staff}
-              className="fc-event col-span-1 border border-3  hover:bg-slate-100  border-zinc-600 bg-lime-500 h-5 w-5 rounded-md mx-1 "
-            ></span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+//             <span
+//               id={shift.staff.toString()}
+//               title={"Open" + " " + shift.staff}
+//               className="fc-event col-span-1 border border-3  hover:bg-slate-100  border-zinc-600 bg-lime-500 h-5 w-5 rounded-md mx-1 "
+//             ></span>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
-export default ShiftChart;
+// export default ShiftChart;
 
 /*
        {shifts.map((shift) => (

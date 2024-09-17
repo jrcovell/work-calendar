@@ -16,6 +16,8 @@ async function Page({ searchParams }: { searchParams: any }) {
   const events = await getEvents();
   const filter = searchParams?.date ?? "all";
   const session = await auth();
+  const adminUser = (session?.user as { admin?: boolean })?.admin || null;
+  if (!session) return;
 
   return (
     <>
@@ -26,7 +28,11 @@ async function Page({ searchParams }: { searchParams: any }) {
       <div>
         {/* fallback will run again if the filter changes */}
         <Suspense fallback={<Spinner />} key={filter}>
-          <EventList events={events} filter={filter} user={session?.user} />
+          <EventList
+            events={events}
+            filter={filter}
+            adminUser={adminUser ?? false}
+          />
         </Suspense>
       </div>
     </>

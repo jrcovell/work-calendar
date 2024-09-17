@@ -6,9 +6,19 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 import { ExclamationCircleIcon } from "@heroicons/react/24/solid";
-import { Fragment } from "react";
+import { Fragment, ReactNode } from "react";
 
-export default function Modal({ show, onClose, title, children }) {
+interface ModalProps {
+  show: boolean;
+
+  onClose: () => void;
+
+  title: string;
+
+  children: ReactNode;
+}
+
+export default function Modal({ show, onClose, title, children }: ModalProps) {
   return (
     <>
       <Transition show={show}>

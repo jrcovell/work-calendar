@@ -24,13 +24,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
   return (
     <html lang="en">
       <body
         className={`bg-main-100 antialiased min-h-screen text-secondary-800 flex flex-col relative`}
       >
-        <Navigation session={session} />
+        <Navigation />
 
         <main className="max-w-10xl mx-5">
           <Toaster position="top-center" />

@@ -6,21 +6,23 @@ import EventCard from "./EventCard";
 import Modal from "./Modal";
 import { useState } from "react";
 import EditEventForm from "./EditEventForm";
-import { Event, User } from "@/types";
+import { Event, Session, User } from "@/types";
 
 function EventList({
   events,
   filter,
-  user,
+  // session,
+  adminUser,
 }: {
   events: Event[];
   filter: string;
-  user: User;
+  // session: Session;
+  adminUser: boolean;
 }) {
   const { setShowEditEvent, showEditEvent } = useCalendar();
   const [selectedEvent, setSelectedEvent] = useState<any>(null);
 
-  let admin = user?.admin;
+  console.log("adminUser", adminUser);
 
   function handleModal(event: Event) {
     setShowEditEvent(true);
@@ -66,7 +68,7 @@ function EventList({
               key={event.id}
               className="col-span-1"
               onClick={() => {
-                admin ? handleModal(event) : null;
+                adminUser ? handleModal(event) : null;
               }}
             >
               <EventCard event={event} />

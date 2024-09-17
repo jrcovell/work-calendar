@@ -4,7 +4,12 @@ import UpdateProfileForm from "@/app/components/UpdateProfileForm";
 
 async function Page() {
   const session = await auth();
-  const staff = await getStaffFromServer(session.user.email);
+  if (!session) {
+    return null;
+  }
+
+  let staffEmail: string = session?.user?.email ?? "";
+  const staff = await getStaffFromServer(staffEmail);
 
   return (
     <div>

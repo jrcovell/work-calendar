@@ -5,6 +5,7 @@ import { auth } from "../_lib/auth";
 
 import AdminDropdown from "./AdminDropdown";
 import { useParams, useSearchParams } from "next/navigation";
+import Image from "next/image";
 
 export default async function Navigation() {
   const session = await auth();
@@ -70,7 +71,7 @@ export default async function Navigation() {
             >
               <img
                 src={session.user.image}
-                alt={session.user.name}
+                alt={session.user.name ?? ""}
                 className="h-7 rounded-full"
                 //* sometimes needed by google
                 referrerPolicy="no-referrer"
