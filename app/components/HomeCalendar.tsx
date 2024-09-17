@@ -71,7 +71,7 @@ function HomeCalendar({
       <div className="col-span-1 justify-center items-center space-y-1 ml-2">
         <button
           className={`font-bold py-2 px-2 rounded border-secondary-100 border-2 ${
-            showEvents ? "bg-main-500" : "bg-main-800"
+            showEvents ? "bg-slate-50" : "bg-main-800"
           } text-secondary-100 hover:bg-main-600`}
           onClick={handleShowEvents}
         >
