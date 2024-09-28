@@ -48,8 +48,34 @@ function HomeCalendar({
   }
 
   return (
-    <div className="grid grid-cols-10 items-start justify-center min-h-screen py-2">
-      <div className="col-span-9 text-sm">
+    <div className="items-start justify-center min-h-screen pb-1">
+      <div className="flex justify-end items-center space-y-1">
+        <button
+          className={`font-bold py-1 px-1.5 rounded-md border-secondary-100 border-2 mt-1 ${
+            showEvents ? "bg-main-500" : "bg-main-800"
+          } text-secondary-100 hover:bg-main-600 text-xs`}
+          onClick={handleShowEvents}
+        >
+          {showEvents ? "Hide Events" : "Show Events"}
+        </button>
+        <button
+          className={`font-bold py-1 px-1.5 rounded-md border-secondary-100 border-2  ${
+            showSchedule ? "bg-main-500" : "bg-main-800"
+          } text-secondary-100 hover:bg-main-600 text-xs`}
+          onClick={handleShowSchedule}
+        >
+          {showSchedule ? "Hide Schedule" : "Show Schedule"}
+        </button>
+        <button
+          className={`font-bold py-1 px-1.5 rounded-md border-secondary-100 border-2 ${
+            showTimeOff ? "bg-main-500" : "bg-main-800"
+          } text-secondary-100 hover:bg-main-600 text-xs`}
+          onClick={handleShowTimeOff}
+        >
+          {showTimeOff ? "Hide Time Off" : "Show Time Off"}
+        </button>
+      </div>
+      <div className="text-sm">
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
@@ -67,32 +93,6 @@ function HomeCalendar({
           defaultAllDay={false}
           displayEventEnd={true}
         />
-      </div>
-      <div className="col-span-1 justify-center items-center space-y-1 ml-2">
-        <button
-          className={`font-bold py-2 px-2 rounded border-secondary-100 border-2 ${
-            showEvents ? "bg-slate-50" : "bg-main-800"
-          } text-secondary-100 hover:bg-main-600`}
-          onClick={handleShowEvents}
-        >
-          {showEvents ? "Hide Events" : "Show Events"}
-        </button>
-        <button
-          className={`font-bold py-2 px-2 rounded border-secondary-100 border-2 ${
-            showSchedule ? "bg-main-500" : "bg-main-800"
-          } text-secondary-100 hover:bg-main-600`}
-          onClick={handleShowSchedule}
-        >
-          {showSchedule ? "Hide Schedule" : "Show Schedule"}
-        </button>
-        <button
-          className={`font-bold py-2 px-2 rounded border-secondary-100 border-2 ${
-            showTimeOff ? "bg-main-500" : "bg-main-800"
-          } text-secondary-100 hover:bg-main-600`}
-          onClick={handleShowTimeOff}
-        >
-          {showTimeOff ? "Hide Time Off" : "Show Time Off"}
-        </button>
       </div>
     </div>
   );

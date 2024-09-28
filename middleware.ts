@@ -20,5 +20,12 @@ export const middleware = auth;
 
 export const config = {
   //* specify which paths the middleware should run on
-  matcher: ["/schedule", "/scheduleV2", "/staff", "/profile"],
+  matcher: [
+    "/schedule",
+    "/scheduleV2",
+    "/staff",
+    "/profile",
+    "/settings",
+    "/events",
+  ],
 };
