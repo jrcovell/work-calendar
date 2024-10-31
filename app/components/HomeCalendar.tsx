@@ -72,7 +72,7 @@ function HomeCalendar({
           } text-secondary-100 hover:bg-main-600 text-xs`}
           onClick={handleShowTimeOff}
         >
-          {showTimeOff ? "Hide Time Off" : "Show Time Off"}
+          {showTimeOff ? "Hide Time-Off" : "Show Time-Off"}
         </button>
       </div>
       <div className="text-sm">
