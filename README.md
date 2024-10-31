@@ -1,13 +1,13 @@
 # Work Calendar
 
 ## Overview
-The Work Calendar project is designed to help users manage their work schedules efficiently. It provides features such as event creation, reminders, and calendar views to keep track of important dates and deadlines.
+The Work Calendar project is designed to help employees manage their work schedules efficiently. It includes information such as events, schedules, time-off requests to keep track of important dates and deadlines.
 
 ## Features
 - **Event Creation**: Easily create and manage events with details such as title, description, date, and time.
-- **Reminders**: Set reminders for events to receive notifications before they occur.
+- **Time-Off**: Schedule time-off in order to prevent scheduling conflicts.
 - **Calendar Views**: View your schedule in different formats including daily, weekly, and monthly views.
-- **Synchronization**: Sync your calendar with other devices and platforms to keep your schedule up-to-date.
+
 
 ## Installation
 To install the Work Calendar project, follow these steps:
